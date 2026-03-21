@@ -260,6 +260,7 @@ blockquote {
 .post-body {
   display: grid;
   gap: 1rem;
+  width: min(96vw, 1020px);
   padding: clamp(1.25rem, 3vw, 2.5rem);
   border: 1px solid var(--line);
   border-radius: 1.5rem;
@@ -268,9 +269,23 @@ blockquote {
   font-size: 1.05rem;
 }
 
-.article-column,
-.post-body > * {
+.article-column {
+  min-width: 0;
+}
+
+.post-body p {
   max-width: 78ch;
+}
+
+.post-body ul,
+.post-body ol,
+.post-body h1,
+.post-body h2,
+.post-body h3,
+.post-body .callout,
+.post-body blockquote,
+.post-body .post-image-inline {
+  max-width: 100%;
 }
 
 .post-body h1,
