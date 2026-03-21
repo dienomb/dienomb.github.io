@@ -49,7 +49,7 @@ a:hover {
 }
 
 main {
-  width: min(1120px, calc(100vw - 2rem));
+  width: min(1180px, calc(100vw - 2rem));
   margin: 0 auto;
   padding: clamp(1rem, 3vw, 2.5rem) 0 4rem;
 }
@@ -125,13 +125,13 @@ main > header p {
 .card-grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
 }
 
 main > section > div {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
 }
 
 .card-grid article,
@@ -160,7 +160,7 @@ main > section h3 {
 }
 
 .post-page {
-  width: min(860px, calc(100vw - 2rem));
+  width: min(1120px, calc(100vw - 2rem));
 }
 
 .post {
@@ -176,6 +176,10 @@ main > section h3 {
   border-radius: 1.75rem;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 250, 244, 0.72));
   box-shadow: var(--shadow);
+}
+
+.post-hero-media {
+  width: 100%;
 }
 
 .post-header .eyebrow {
@@ -266,7 +270,7 @@ blockquote {
 
 .article-column,
 .post-body > * {
-  max-width: 68ch;
+  max-width: 78ch;
 }
 
 .post-body h1,
@@ -301,9 +305,23 @@ blockquote {
   margin: 0;
 }
 
+.post-image-hero {
+  width: 100%;
+}
+
+.post-image-hero img {
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  object-fit: cover;
+}
+
+.post-image-inline {
+  max-width: 100%;
+}
+
 @media (max-width: 720px) {
   main {
-    width: min(100vw - 1rem, 1120px);
+    width: min(100vw - 1rem, 1180px);
     padding-top: 0.75rem;
   }
 
