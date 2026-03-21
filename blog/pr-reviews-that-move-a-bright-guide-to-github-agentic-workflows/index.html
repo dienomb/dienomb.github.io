@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PR Reviews That Move: A Bright Guide to GitHub Agentic Workflows ✨</title>
+  <link rel="stylesheet" href="../../assets/blog.css">
+</head>
+<body>
+  <main class="post-page">
+    <article class="post article-column">
+      <header class="post-header">
+        <p class="eyebrow">Blog post</p>
+        <h1>PR Reviews That Move: A Bright Guide to GitHub Agentic Workflows ✨</h1>
+        <p class="subtitle">How to turn pull requests from bottleneck to feedback engine with GitHub Copilot, Actions, and agentic review loops.</p>
+              <div class="metadata-row">
+        <span class="reading-time">4 min read</span>
+        <time datetime="2026-03-20T23:51:08.0514073+00:00">Published March 20, 2026</time>
+      </div>
+
+        <p class="callout summary">GitHub’s newer agentic workflow patterns make pull request reviews faster, clearer, and more collaborative. This post explains how to use Copilot code review, automated review triggers, and human-in-the-loop safeguards to keep PRs moving without lowering quality.</p>
+              <ul class="tags">
+        <li>GitHub</li>
+        <li>Pull Requests</li>
+        <li>Code Review</li>
+        <li>GitHub Actions</li>
+        <li>GitHub Copilot</li>
+        <li>Developer Productivity</li>
+      </ul>
+
+      </header>
+      <section class="post-images">
+  <a class="post-image" href="https://docs.github.com/assets/cb-139787/images/help/copilot/copilot-code-review-reviewers-menu.png">
+    <img src="https://docs.github.com/assets/cb-139787/images/help/copilot/copilot-code-review-reviewers-menu.png" alt="PR Reviews That Move: A Bright Guide to GitHub Agentic Workflows ✨">
+  </a>
+  <a class="post-image" href="https://docs.github.com/assets/cb-63337/images/help/actions/workflow-graph.png">
+    <img src="https://docs.github.com/assets/cb-63337/images/help/actions/workflow-graph.png" alt="PR Reviews That Move: A Bright Guide to GitHub Agentic Workflows ✨">
+  </a>
+  <a class="post-image" href="https://docs.github.com/assets/cb-91199/images/help/copilot/coding-agent-approve-and-run-workflows.png">
+    <img src="https://docs.github.com/assets/cb-91199/images/help/copilot/coding-agent-approve-and-run-workflows.png" alt="PR Reviews That Move: A Bright Guide to GitHub Agentic Workflows ✨">
+  </a>
+</section>
+      <section class="post-body">
+        <p>Pull requests are where software quality becomes visible. They are also where momentum often goes to die.</p>
+<p>That is why GitHub’s newer <strong>agentic workflow</strong> model feels so promising: instead of treating PR review as one final manual gate, it turns review into a living loop of automation, context, iteration, and human judgment. The result is not “AI replaces reviewers.” It is something much more useful: <strong>AI helps teams arrive at better pull requests before humans spend their precious attention</strong>.</p>
+<h2>Key Takeaways</h2>
+<ul>
+<li><strong>Agentic workflows bring coding agents into GitHub Actions and repository automation</strong>, making it possible to automate tasks like code quality work, documentation, and review-oriented checks in a more adaptive way.</li>
+<li><strong>Copilot code review can review pull requests automatically</strong> when a PR is opened, when draft PRs are promoted, and optionally on new pushes or even while still in draft.</li>
+<li><strong>Copilot reviews do not count as required approvals</strong>, which keeps the human reviewer in charge of merge decisions.</li>
+<li><strong>Teams can iterate directly inside the PR flow</strong> by asking <code>@copilot</code> to make follow-up changes on pull requests.</li>
+<li><strong>There is an important safety boundary</strong>: workflows do not automatically run when Copilot pushes to a PR by default, so teams can inspect changes before privileged automation runs.</li>
+</ul>
+<h2>The real shift: from static automation to review loops &#128260;</h2>
+<p>Traditional PR automation is useful, but predictable in a narrow way. A linter runs. A test suite runs. A status check passes or fails.</p>
+<p>Agentic workflows expand that model. Instead of only asking, “Did this predefined check pass?”, teams can now build automations that <strong>analyze, comment, summarize, revise, and route work</strong> with more context. On GitHub, that increasingly means combining:</p>
+<ul>
+<li><strong>GitHub Actions</strong> for orchestration</li>
+<li><strong>Copilot code review</strong> for review comments and suggestions</li>
+<li><strong>Copilot coding agent</strong> for follow-up implementation</li>
+<li><strong>Human reviewers</strong> for final judgment</li>
+</ul>
+<p>This is the exciting part: the PR becomes more than a diff. It becomes a workspace where review can start earlier, happen more often, and arrive better prepared.</p>
+<h2>Why this matters for pull request reviews</h2>
+<p>Most review pain has very little to do with the idea of review itself. It comes from friction:</p>
+<ul>
+<li>PRs are too large</li>
+<li>context is missing</li>
+<li>reviewers arrive late</li>
+<li>small mistakes consume high-value attention</li>
+<li>authors wait too long for the first useful signal</li>
+</ul>
+<p>GitHub’s current review tooling helps attack those exact problems.</p>
+<p>Copilot code review can be requested directly from the <strong>Reviewers</strong> menu, and GitHub also supports <strong>automatic review</strong> for new pull requests. Teams can configure it to review new pushes and even draft PRs, which means feedback can appear <em>before</em> a human reviewer is formally pulled in. That is a subtle but powerful change: it moves review closer to the moment code is written, where fixes are cheaper and momentum is still high.</p>
+<p>And importantly, Copilot’s review is posted as a <strong>comment review</strong>, not an approval or a blocking change request. That makes the tool useful without confusing accountability.</p>
+<h2>The brightest pattern: reviewer first, agent second &#129309;</h2>
+<p>One of the most practical workflows looks like this:</p>
+<h3>1. Open the PR early</h3>
+<p>Keep the pull request small enough to review. Let the draft exist as a conversation surface, not just a final submission.</p>
+<h3>2. Trigger automated review</h3>
+<p>Use Copilot code review automatically on open PRs, draft PRs, or new pushes. Let it catch naming issues, risky edits, missing context, and low-friction suggestions quickly.</p>
+<h3>3. Let humans focus on the important things</h3>
+<p>When the obvious issues are already flagged, human reviewers can spend time on architecture, maintainability, product intent, and edge cases.</p>
+<h3>4. Ask the agent to iterate</h3>
+<p>If review feedback is clear, you can ask <code>@copilot</code> to apply or address changes directly in the PR flow. That creates a much tighter loop between review and revision.</p>
+<h3>5. Keep privileged automation gated</h3>
+<p>When an agent has pushed code, teams should inspect the changes before allowing workflows with sensitive access to run. This is especially important for modifications to <code>.github/workflows/</code>.</p>
+<p>This pattern feels modern because it respects a simple truth: <strong>the best review systems reduce reviewer fatigue without reducing reviewer responsibility</strong>.</p>
+<h2>What makes GitHub’s approach compelling</h2>
+<p>There are three details that stand out.</p>
+<h3>1. It fits the existing PR habit</h3>
+<p>The magic is not that teams need a brand-new interface. The magic is that the workflow stays anchored in the pull request. Comments, suggestions, approvals, iterations, and checks all remain where developers already work.</p>
+<h3>2. It supports earlier feedback</h3>
+<p>Automatic review for drafts and new pushes means the review loop can begin before the PR is “finished.” That is one of the easiest ways to shorten cycle time without lowering standards.</p>
+<h3>3. It preserves human control</h3>
+<p>This is the difference between a flashy demo and a production-ready workflow. Copilot can review, suggest, and revise, but approvals still belong to humans, and privileged workflow execution can remain intentionally gated.</p>
+<h2>A practical setup for teams</h2>
+<p>If you want to use agentic workflows for PR reviews without overcomplicating your process, start here:</p>
+<h3>Start small</h3>
+<p>Pick one repository with active pull requests and enable a lightweight review flow first.</p>
+<h3>Automate the first pass</h3>
+<p>Use Copilot code review to generate an initial layer of feedback on open PRs and new pushes.</p>
+<h3>Define what humans own</h3>
+<p>Be explicit that human reviewers own approval, architectural judgment, and merge readiness.</p>
+<h3>Protect the workflow surface</h3>
+<p>Treat workflow files and secrets-sensitive automation as high-trust areas. Review those changes carefully before running privileged Actions.</p>
+<h3>Measure the right outcome</h3>
+<p>Do not just measure “fewer comments.” Measure:</p>
+<ul>
+<li>time to first feedback</li>
+<li>time from open to merge</li>
+<li>size of PRs</li>
+<li>number of review rounds</li>
+<li>reviewer load per engineer</li>
+</ul>
+<p>The goal is not to create more automation. The goal is to create <strong>cleaner review attention</strong>.</p>
+<h2>The bigger picture &#127775;</h2>
+<p>The most interesting thing about GitHub agentic workflows is not that they can comment on code. It is that they can reshape the tempo of collaboration.</p>
+<p>PR reviews have long been treated as a narrow checkpoint between coding and merging. Agentic workflows make them feel more like a guided system of feedback: one that starts earlier, adapts faster, and gives humans a higher-leverage role.</p>
+<p>That is a bright future for engineering teams.</p>
+<p>Not because the machine reviews the code.</p>
+<p>Because the team gets to review what matters most.</p>
+<h2>Further Reading</h2>
+<ul>
+<li>GitHub Blog: Automate repository tasks with GitHub Agentic Workflows</li>
+<li>GitHub Docs: Using GitHub Copilot code review</li>
+<li>GitHub Docs: About GitHub Copilot code review</li>
+<li>GitHub Docs: Configuring automatic code review by GitHub Copilot</li>
+<li>GitHub Docs: Reviewing a pull request created by GitHub Copilot</li>
+</ul>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
