@@ -1,0 +1,60 @@
+name: Clean Blog And Assets
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Remove blog and assets folders
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf blog assets
+
+      - name: Commit cleanup changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain blog assets)" ]; then
+            echo "No blog/assets changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A blog assets
+          git commit -m "chore: clean blog and assets folders"
+
+      - name: Push cleanup changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git remote set-url origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+
+          for attempt in 1 2 3; do
+            echo "Push attempt ${attempt}..."
+            git fetch origin main
+            git rebase origin/main
+
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+
+            if [ "${attempt}" -eq 3 ]; then
+              echo "Failed to push cleanup changes after 3 attempts."
+              exit 1
+            fi
+
+            sleep 2
+          done
