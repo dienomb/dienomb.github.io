@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en" data-theme="tech">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub y GitHub Actions: automatiza tareas simples sin complicarte ⚡</title>
+  <link rel="stylesheet" href="../../assets/blog.css">
+</head>
+<body>
+  <main class="post-page">
+    <article class="post">
+      <header class="post-header">
+        <h1>GitHub y GitHub Actions: automatiza tareas simples sin complicarte ⚡</h1>
+        
+                <p class="post-subtitle">Una gu&#237;a sencilla para entender GitHub y empezar a usar GitHub Actions con ejemplos f&#225;ciles y &#250;tiles</p>
+                
+        <div class="post-meta">
+          <span class="theme-badge">tech</span>
+          <span class="reading-time">5 min read</span>
+          
+                    <time datetime="2026-03-26T18:15:38.1915081+00:00">Published March 26, 2026</time>
+                    
+        </div>
+        
+                <p class="post-summary">GitHub no solo sirve para guardar c&#243;digo. Tambi&#233;n te ayuda a colaborar, organizar cambios y automatizar tareas repetitivas. En este art&#237;culo explico qu&#233; es GitHub, qu&#233; son las GitHub Actions y c&#243;mo puedes usarlas en casos sencillos, incluso si todav&#237;a est&#225;s empezando.</p>
+                
+        
+                <ul class="tags">
+                  
+                    <li>GitHub</li>
+                    
+                    <li>GitHub Actions</li>
+                    
+                    <li>Automatizaci&#243;n</li>
+                    
+                    <li>Tutorial</li>
+                    
+                    <li>Primeros pasos</li>
+                    
+                </ul>
+                
+      </header>
+      
+            <figure class="post-hero">
+              <img src="../../assets/blog/github-y-github-actions-automatiza-tareas-simples-sin-complicarte/hero-1.png" alt="GitHub y GitHub Actions: automatiza tareas simples sin complicarte ⚡">
+            </figure>
+            
+      <section class="post-body">
+        <h1 id="github-y-github-actions-automatiza-tareas-simples-sin-complicarte">GitHub y GitHub Actions: automatiza tareas simples sin complicarte</h1>
+        <p><em>Una guía sencilla para entender GitHub y empezar a usar GitHub Actions con ejemplos fáciles y útiles.</em></p>
+        <p>Cuando alguien empieza a programar, GitHub suele aparecer muy pronto. A veces parece una herramienta complicada, pero en realidad la idea base es bastante simple: guardar tu proyecto, ver cambios y trabajar con más orden.</p>
+        <p>Y cuando ya entiendes esa parte, aparece una función muy útil: <strong>GitHub Actions</strong>. Gracias a ella puedes hacer que GitHub ejecute tareas automáticas por ti, sin tener que repetir siempre los mismos pasos.</p>
+        <section class="takeaways-card"><p class="section-label">Key takeaways</p><h2>Key Takeaways</h2><ul>
+        <li><strong>GitHub</strong> te ayuda a guardar, ordenar y compartir tu proyecto.</li>
+        <li><strong>GitHub Actions</strong> sirve para automatizar tareas repetitivas.</li>
+        <li>No hace falta empezar con cosas avanzadas: puedes usarlo para tareas muy simples.</li>
+        <li>Un workflow puede ejecutarse cuando haces un <code>push</code>, abres una <code>pull request</code> o en una hora concreta.</li>
+        <li>Empezar con automatizaciones pequeñas suele ser la mejor forma de aprender.</li>
+        </ul></section>
+        <h2 id="que-es-github">1. Qué es GitHub</h2>
+        <p>GitHub es una plataforma donde puedes guardar repositorios y llevar el control de los cambios de tu proyecto.</p>
+        <p>Dicho fácil: te ayuda a no perder versiones, a trabajar con ramas y a colaborar sin tanto caos.</p>
+        <p>Por ejemplo, con GitHub puedes:</p>
+        <table>
+        <thead>
+        <tr>
+        <th>Lo que quieres hacer</th>
+        <th>Cómo ayuda GitHub</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Guardar tu proyecto online</td>
+        <td>Repositorios</td>
+        </tr>
+        <tr>
+        <td>Ver qué cambió</td>
+        <td>Historial de commits</td>
+        </tr>
+        <tr>
+        <td>Probar cosas sin romper lo anterior</td>
+        <td>Ramas</td>
+        </tr>
+        <tr>
+        <td>Revisar cambios antes de aceptarlos</td>
+        <td>Pull requests</td>
+        </tr>
+        <tr>
+        <td>Trabajar con más orden</td>
+        <td>Issues y proyectos</td>
+        </tr>
+        </tbody>
+        </table>
+        <p>Eso ya es útil por sí solo. Pero GitHub tiene algo más: puede <strong>hacer cosas automáticamente</strong> cuando detecta ciertos eventos.</p>
+        <h2 id="que-son-las-github-actions">2. Qué son las GitHub Actions</h2>
+        <p>Las <strong>GitHub Actions</strong> son una herramienta de automatización dentro de GitHub.</p>
+        <p>Sirven para decirle a GitHub algo como esto:</p>
+        <blockquote>
+        <p>“Cuando pase X, haz Y.”</p>
+        </blockquote>
+        <p>Por ejemplo:</p>
+        <ul>
+        <li>cuando suba cambios, ejecuta una prueba</li>
+        <li>cuando haga push a <code>main</code>, publica la web</li>
+        <li>cada mañana, ejecuta un script</li>
+        <li>cuando alguien abra una pull request, revisa que todo esté bien</li>
+        </ul>
+        <p>Todo eso se configura en un archivo YAML dentro del repositorio.</p>
+        <h2 id="la-idea-sin-tecnicismos">3. La idea sin tecnicismos</h2>
+        <p>Aunque por dentro tenga términos como <em>workflow</em>, <em>job</em> o <em>runner</em>, la idea general es muy sencilla:</p>
+        <ol>
+        <li>ocurre algo en tu repositorio</li>
+        <li>GitHub lo detecta</li>
+        <li>GitHub ejecuta una tarea automática</li>
+        </ol>
+        <p>Eso es todo.</p>
+        <h3 id="vocabulario-basico">Vocabulario básico</h3>
+        <table>
+        <thead>
+        <tr>
+        <th>Término</th>
+        <th>Qué significa</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><strong>Workflow</strong></td>
+        <td>La automatización completa</td>
+        </tr>
+        <tr>
+        <td><strong>Event</strong></td>
+        <td>Lo que la dispara</td>
+        </tr>
+        <tr>
+        <td><strong>Job</strong></td>
+        <td>Una tarea dentro del workflow</td>
+        </tr>
+        <tr>
+        <td><strong>Step</strong></td>
+        <td>Un paso concreto</td>
+        </tr>
+        <tr>
+        <td><strong>Runner</strong></td>
+        <td>La máquina donde se ejecuta</td>
+        </tr>
+        </tbody>
+        </table>
+        <p>No hace falta memorizarlo todo. Lo importante es entender que GitHub puede actuar por ti cuando ocurra algo.</p>
+        <h2 id="un-ejemplo-minimo">4. Un ejemplo mínimo</h2>
+        <p>Este es un ejemplo muy simple:</p>
+        <pre><code class="language-yaml">name: Mensaje de prueba
+        
+        on:
+          push:
+            branches: [main]
+        
+        jobs:
+          ejemplo:
+            runs-on: ubuntu-latest
+            steps:
+              - name: Descargar el repositorio
+                uses: actions/checkout@v4
+        
+              - name: Mostrar mensaje
+                run: echo &quot;La automatización funciona&quot;
+        </code></pre>
+        <h3 id="que-hace-este-ejemplo">Qué hace este ejemplo</h3>
+        <ul>
+        <li>se activa cuando haces <code>push</code> a <code>main</code></li>
+        <li>abre una máquina temporal</li>
+        <li>descarga tu repositorio</li>
+        <li>muestra un mensaje</li>
+        </ul>
+        <p>Es una automatización muy pequeña, pero sirve para entender la lógica.</p>
+        <h2 id="casos-de-uso-simples-de-github-actions">5. Casos de uso simples de GitHub Actions</h2>
+        <p>Aquí está la parte más útil. No hace falta pensar en grandes despliegues o sistemas complejos. Puedes empezar con cosas muy sencillas.</p>
+        <h3 id="pasar-tests-automaticamente">1) Pasar tests automáticamente</h3>
+        <p>Imagina que siempre que haces cambios tienes que ejecutar tests manualmente.</p>
+        <p>Con GitHub Actions puedes hacer que eso ocurra solo.</p>
+        <p><strong>Ejemplo práctico:</strong><br /> cada vez que subes cambios, GitHub ejecuta tus tests y te dice si algo falla.</p>
+        <p><strong>Por qué es útil:</strong><br /> te evita olvidos y te da más confianza antes de seguir avanzando.</p>
+        <h3 id="publicar-una-web-sencilla">2) Publicar una web sencilla</h3>
+        <p>Si tienes una web estática, una landing o documentación, puedes automatizar la publicación.</p>
+        <p><strong>Ejemplo práctico:</strong><br /> haces cambios, subes el código y GitHub actualiza la web automáticamente.</p>
+        <p><strong>Por qué es útil:</strong><br /> ahorras tiempo y no tienes que hacer el mismo proceso manual una y otra vez.</p>
+        <h3 id="revisar-formato-o-calidad-del-codigo">3) Revisar formato o calidad del código</h3>
+        <p>A veces no quieres revisar todo “a ojo”.</p>
+        <p>Puedes hacer que GitHub revise cosas como:</p>
+        <ul>
+        <li>formato</li>
+        <li>errores básicos</li>
+        <li>estilo del código</li>
+        </ul>
+        <p><strong>Ejemplo práctico:</strong><br /> cuando abres una pull request, GitHub comprueba si el código está bien formateado.</p>
+        <p><strong>Por qué es útil:</strong><br /> detecta problemas simples antes de mezclar cambios.</p>
+        <h3 id="ejecutar-una-tarea-programada">4) Ejecutar una tarea programada</h3>
+        <p>GitHub Actions también puede funcionar por horario.</p>
+        <p><strong>Ejemplos simples:</strong></p>
+        <ul>
+        <li>ejecutar un script cada mañana</li>
+        <li>actualizar un archivo automáticamente</li>
+        <li>generar un informe</li>
+        <li>lanzar una comprobación diaria</li>
+        </ul>
+        <p><strong>Por qué es útil:</strong><br /> te sirve para tareas repetitivas que no quieres recordar manualmente.</p>
+        <h3 id="automatizar-tareas-del-repositorio">5) Automatizar tareas del repositorio</h3>
+        <p>No todo gira en torno al código.</p>
+        <p>También puedes automatizar tareas de organización.</p>
+        <p><strong>Ejemplos simples:</strong></p>
+        <ul>
+        <li>poner etiquetas automáticas a issues</li>
+        <li>responder con un mensaje inicial</li>
+        <li>cerrar tareas antiguas</li>
+        <li>lanzar recordatorios</li>
+        </ul>
+        <p><strong>Por qué es útil:</strong><br /> mantiene el repositorio más ordenado sin esfuerzo constante.</p>
+        <h3 id="crear-archivos-o-artefactos-automaticamente">6) Crear archivos o artefactos automáticamente</h3>
+        <p>Puedes hacer que GitHub genere algo por ti cuando ocurra un evento.</p>
+        <p><strong>Ejemplos:</strong></p>
+        <ul>
+        <li>crear un zip</li>
+        <li>preparar una build</li>
+        <li>generar documentación</li>
+        <li>guardar resultados de una ejecución</li>
+        </ul>
+        <p><strong>Por qué es útil:</strong><br /> dejas preparada información útil sin tener que hacer pasos manuales.</p>
+        <h2 id="por-que-esto-viene-bien-al-empezar">6. Por qué esto viene bien al empezar</h2>
+        <p>Cuando estás aprendiendo, una de las cosas más pesadas es repetir tareas pequeñas:</p>
+        <ul>
+        <li>probar cosas a mano</li>
+        <li>olvidar pasos</li>
+        <li>revisar siempre lo mismo</li>
+        <li>hacer procesos mecánicos una y otra vez</li>
+        </ul>
+        <p>GitHub Actions ayuda justo ahí.</p>
+        <p>No porque convierta tu proyecto en algo “más pro” de golpe, sino porque te quita trabajo repetitivo.</p>
+        <h3 id="beneficios-claros">Beneficios claros</h3>
+        <ul>
+        <li>menos tareas manuales</li>
+        <li>menos olvidos</li>
+        <li>más orden</li>
+        <li>más confianza al cambiar cosas</li>
+        <li>aprendizaje más práctico</li>
+        </ul>
+        <h2 id="con-que-caso-deberias-empezar">7. Con qué caso deberías empezar</h2>
+        <p>La mejor recomendación es empezar con <strong>un solo caso de uso</strong>.</p>
+        <p>Los más fáciles suelen ser estos:</p>
+        <ul>
+        <li>ejecutar tests al hacer <code>push</code></li>
+        <li>revisar formato al abrir una pull request</li>
+        <li>publicar una web sencilla al actualizar <code>main</code></li>
+        </ul>
+        <p>Con uno de esos ya aprendes mucho.</p>
+        <h2 id="errores-comunes">8. Errores comunes</h2>
+        <h3 id="querer-hacer-demasiado-desde-el-principio">Querer hacer demasiado desde el principio</h3>
+        <p>Empieza con algo pequeño. Una automatización simple que funcione vale mucho más que una muy grande que no entiendes.</p>
+        <h3 id="copiar-yaml-sin-entenderlo">Copiar YAML sin entenderlo</h3>
+        <p>Está bien usar ejemplos, pero conviene leer cada parte y saber qué hace.</p>
+        <h3 id="meter-secretos-directamente-en-el-archivo">Meter secretos directamente en el archivo</h3>
+        <p>Las claves o tokens no deben escribirse dentro del workflow.</p>
+        <h3 id="pensar-que-solo-sirve-para-cicd">Pensar que solo sirve para CI/CD</h3>
+        <p>También sirve para tareas pequeñas y muy cotidianas.</p>
+        <h2 id="conclusion">Conclusión</h2>
+        <p>GitHub ya es muy útil por sí mismo, pero GitHub Actions lo vuelve todavía más práctico. Te permite automatizar tareas simples, ahorrar tiempo y trabajar con más orden desde el principio.</p>
+        <p>No hace falta empezar con algo complicado. De hecho, lo mejor es arrancar con una automatización pequeña y útil. Por ejemplo: que GitHub pase tus tests automáticamente o publique una web sencilla cuando subes cambios.</p>
+        <p>Ahí suele empezar todo.</p>
+      </section>
+      <section class="post-reactions" data-post-reactions data-post-slug="github-y-github-actions-automatiza-tareas-simples-sin-complicarte" aria-labelledby="post-reactions-heading">
+        <h2 id="post-reactions-heading">How did this post make you feel?</h2>
+        <p class="post-reactions-subtitle">Pick one reaction:</p>
+        <div class="post-reaction-list" role="group" aria-label="Post reactions">
+          <button type="button" class="post-reaction-button" data-reaction-key="love" data-reaction-emoji="❤️">
+            <span class="post-reaction-emoji" aria-hidden="true">❤️</span>
+            <span class="post-reaction-label">Loved it</span>
+            <span class="post-reaction-count" data-reaction-count>0</span>
+          </button>
+          <button type="button" class="post-reaction-button" data-reaction-key="like" data-reaction-emoji="👍">
+            <span class="post-reaction-emoji" aria-hidden="true">👍</span>
+            <span class="post-reaction-label">Helpful</span>
+            <span class="post-reaction-count" data-reaction-count>0</span>
+          </button>
+          <button type="button" class="post-reaction-button" data-reaction-key="mindblown" data-reaction-emoji="🤯">
+            <span class="post-reaction-emoji" aria-hidden="true">🤯</span>
+            <span class="post-reaction-label">Mind blown</span>
+            <span class="post-reaction-count" data-reaction-count>0</span>
+          </button>
+          <button type="button" class="post-reaction-button" data-reaction-key="thinking" data-reaction-emoji="🤔">
+            <span class="post-reaction-emoji" aria-hidden="true">🤔</span>
+            <span class="post-reaction-label">Got me thinking</span>
+            <span class="post-reaction-count" data-reaction-count>0</span>
+          </button>
+        </div>
+      </section>
+      
+            <figure class="post-inline-image">
+              <img src="../../assets/blog/github-y-github-actions-automatiza-tareas-simples-sin-complicarte/inline-2.png" alt="GitHub y GitHub Actions: automatiza tareas simples sin complicarte ⚡">
+            </figure>
+            
+            <figure class="post-inline-image">
+              <img src="../../assets/blog/github-y-github-actions-automatiza-tareas-simples-sin-complicarte/inline-3.img" alt="GitHub y GitHub Actions: automatiza tareas simples sin complicarte ⚡">
+            </figure>
+            
+    </article>
+  </main>
+  <script>
+    (() => {
+      const reactionsRoot = document.querySelector('[data-post-reactions]');
+      if (!reactionsRoot) {
+        return;
+      }
+
+      const slug = reactionsRoot.getAttribute('data-post-slug');
+      if (!slug) {
+        return;
+      }
+
+      const storageKey = `blog:reactions:${slug}`;
+      const voterKey = `blog:reactions:voted:${slug}`;
+      const reactionButtons = Array.from(reactionsRoot.querySelectorAll('[data-reaction-key]'));
+      if (reactionButtons.length === 0) {
+        return;
+      }
+
+      const defaultCounts = {};
+      reactionButtons.forEach((button) => {
+        const key = button.getAttribute('data-reaction-key');
+        if (key) {
+          defaultCounts[key] = 0;
+        }
+      });
+
+      const readJsonObject = (key) => {
+        try {
+          const raw = localStorage.getItem(key);
+          if (!raw) {
+            return null;
+          }
+
+          const parsed = JSON.parse(raw);
+          return parsed && typeof parsed === 'object' ? parsed : null;
+        } catch {
+          return null;
+        }
+      };
+
+      const counts = { ...defaultCounts, ...readJsonObject(storageKey) };
+      let selectedReaction = localStorage.getItem(voterKey);
+
+      const writeState = () => {
+        localStorage.setItem(storageKey, JSON.stringify(counts));
+        if (selectedReaction) {
+          localStorage.setItem(voterKey, selectedReaction);
+        } else {
+          localStorage.removeItem(voterKey);
+        }
+      };
+
+      const render = () => {
+        reactionButtons.forEach((button) => {
+          const key = button.getAttribute('data-reaction-key');
+          if (!key) {
+            return;
+          }
+
+          const countElement = button.querySelector('[data-reaction-count]');
+          const count = Number.isFinite(counts[key]) ? counts[key] : 0;
+          if (countElement) {
+            countElement.textContent = String(count);
+          }
+
+          const isActive = selectedReaction === key;
+          button.classList.toggle('is-active', isActive);
+          button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      };
+
+      reactionButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const key = button.getAttribute('data-reaction-key');
+          if (!key) {
+            return;
+          }
+
+          if (selectedReaction === key) {
+            counts[key] = Math.max(0, (counts[key] ?? 0) - 1);
+            selectedReaction = null;
+          } else {
+            if (selectedReaction && counts[selectedReaction] > 0) {
+              counts[selectedReaction] -= 1;
+            }
+
+            counts[key] = (counts[key] ?? 0) + 1;
+            selectedReaction = key;
+          }
+
+          writeState();
+          render();
+        });
+      });
+
+      writeState();
+      render();
+    })();
+  </script>
+</body>
+</html>
