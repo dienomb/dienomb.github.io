@@ -308,6 +308,18 @@ a:focus-visible {
   color: var(--ink-muted);
 }
 
+.theme-badge {
+  display: inline-flex;
+  padding: 0.22rem 0.6rem;
+  border-radius: var(--r-sm);
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .reading-time {
   display: inline-flex;
   padding: 0.22rem 0.6rem;
