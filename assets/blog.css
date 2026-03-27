@@ -668,6 +668,75 @@ a:focus-visible {
   box-shadow: var(--shadow-image);
 }
 
+/* ── Post reactions ── */
+
+.post-reactions {
+  margin-top: 2.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+
+.post-reactions h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.post-reactions-subtitle {
+  margin: 0.5rem 0 0;
+  color: var(--ink-muted);
+}
+
+.post-reaction-list {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+}
+
+.post-reaction-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+  transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.post-reaction-button:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.post-reaction-button.is-active {
+  border-color: var(--accent);
+  background: var(--accent-wash);
+}
+
+.post-reaction-emoji {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.post-reaction-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.post-reaction-count {
+  min-width: 1.4rem;
+  text-align: center;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
 /* ══════════════════════════════════════
    THEMES — CSS variable overrides
    ══════════════════════════════════════ */

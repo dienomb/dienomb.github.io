@@ -264,6 +264,32 @@
         <p>No hace falta empezar con algo complicado. De hecho, lo mejor es arrancar con una automatización pequeña y útil. Por ejemplo: que GitHub pase tus tests automáticamente o publique una web sencilla cuando subes cambios.</p>
         <p>Ahí suele empezar todo.</p>
       </section>
+      <section class="post-reactions" data-post-reactions data-post-slug="github-y-github-actions-automatiza-tareas-simples-sin-complicarte" aria-labelledby="post-reactions-heading">
+        <h2 id="post-reactions-heading">How did this post make you feel?</h2>
+        <p class="post-reactions-subtitle">Pick one reaction:</p>
+        <div class="post-reaction-list" role="group" aria-label="Post reactions">
+          <button type="button" class="post-reaction-button" data-reaction-key="love" data-reaction-emoji="❤️">
+            <span class="post-reaction-emoji" aria-hidden="true">❤️</span>
+            <span class="post-reaction-label">Loved it</span>
+            <span class="post-reaction-count" data-reaction-count>0</span>
+          </button>
+          <button type="button" class="post-reaction-button" data-reaction-key="like" data-reaction-emoji="👍">
+            <span class="post-reaction-emoji" aria-hidden="true">👍</span>
+            <span class="post-reaction-label">Helpful</span>
+            <span class="post-reaction-count" data-reaction-count>0</span>
+          </button>
+          <button type="button" class="post-reaction-button" data-reaction-key="mindblown" data-reaction-emoji="🤯">
+            <span class="post-reaction-emoji" aria-hidden="true">🤯</span>
+            <span class="post-reaction-label">Mind blown</span>
+            <span class="post-reaction-count" data-reaction-count>0</span>
+          </button>
+          <button type="button" class="post-reaction-button" data-reaction-key="thinking" data-reaction-emoji="🤔">
+            <span class="post-reaction-emoji" aria-hidden="true">🤔</span>
+            <span class="post-reaction-label">Got me thinking</span>
+            <span class="post-reaction-count" data-reaction-count>0</span>
+          </button>
+        </div>
+      </section>
       
             <figure class="post-inline-image">
               <img src="../../assets/blog/github-y-github-actions-automatiza-tareas-simples-sin-complicarte/inline-2.png" alt="GitHub y GitHub Actions: automatiza tareas simples sin complicarte ⚡">
@@ -275,5 +301,105 @@
             
     </article>
   </main>
+  <script>
+    (() => {
+      const reactionsRoot = document.querySelector('[data-post-reactions]');
+      if (!reactionsRoot) {
+        return;
+      }
+
+      const slug = reactionsRoot.getAttribute('data-post-slug');
+      if (!slug) {
+        return;
+      }
+
+      const storageKey = `blog:reactions:${slug}`;
+      const voterKey = `blog:reactions:voted:${slug}`;
+      const reactionButtons = Array.from(reactionsRoot.querySelectorAll('[data-reaction-key]'));
+      if (reactionButtons.length === 0) {
+        return;
+      }
+
+      const defaultCounts = {};
+      reactionButtons.forEach((button) => {
+        const key = button.getAttribute('data-reaction-key');
+        if (key) {
+          defaultCounts[key] = 0;
+        }
+      });
+
+      const readJsonObject = (key) => {
+        try {
+          const raw = localStorage.getItem(key);
+          if (!raw) {
+            return null;
+          }
+
+          const parsed = JSON.parse(raw);
+          return parsed && typeof parsed === 'object' ? parsed : null;
+        } catch {
+          return null;
+        }
+      };
+
+      const counts = { ...defaultCounts, ...readJsonObject(storageKey) };
+      let selectedReaction = localStorage.getItem(voterKey);
+
+      const writeState = () => {
+        localStorage.setItem(storageKey, JSON.stringify(counts));
+        if (selectedReaction) {
+          localStorage.setItem(voterKey, selectedReaction);
+        } else {
+          localStorage.removeItem(voterKey);
+        }
+      };
+
+      const render = () => {
+        reactionButtons.forEach((button) => {
+          const key = button.getAttribute('data-reaction-key');
+          if (!key) {
+            return;
+          }
+
+          const countElement = button.querySelector('[data-reaction-count]');
+          const count = Number.isFinite(counts[key]) ? counts[key] : 0;
+          if (countElement) {
+            countElement.textContent = String(count);
+          }
+
+          const isActive = selectedReaction === key;
+          button.classList.toggle('is-active', isActive);
+          button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      };
+
+      reactionButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const key = button.getAttribute('data-reaction-key');
+          if (!key) {
+            return;
+          }
+
+          if (selectedReaction === key) {
+            counts[key] = Math.max(0, (counts[key] ?? 0) - 1);
+            selectedReaction = null;
+          } else {
+            if (selectedReaction && counts[selectedReaction] > 0) {
+              counts[selectedReaction] -= 1;
+            }
+
+            counts[key] = (counts[key] ?? 0) + 1;
+            selectedReaction = key;
+          }
+
+          writeState();
+          render();
+        });
+      });
+
+      writeState();
+      render();
+    })();
+  </script>
 </body>
 </html>
