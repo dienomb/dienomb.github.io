@@ -753,26 +753,238 @@ a:focus-visible {
    THEMES — CSS variable overrides
    ══════════════════════════════════════ */
 
-/* Tech: cool teal, sharper feel */
+/* Tech: cool cyan, geometric and high-contrast */
 [data-theme="tech"] {
+  --font-display: "Space Grotesk", "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
   --accent: #0891b2;
-  --accent-hover: #0e7490;
-  --accent-glow: rgba(8, 145, 178, 0.12);
-  --accent-wash: rgba(8, 145, 178, 0.05);
-  --paper: #f7f9fb;
-  --paper-warm: #eef3f7;
+  --accent-hover: #155e75;
+  --accent-glow: rgba(14, 116, 144, 0.2);
+  --accent-wash: rgba(8, 145, 178, 0.1);
+  --paper: #f3f8fb;
+  --paper-warm: #e8f2f8;
+  --surface: #ffffff;
+  --ink: #0b1723;
+  --ink-soft: #1f3446;
+  --rule: #c8dceb;
 }
 
-/* Editorial: warm amber, literary feel */
+[data-theme="tech"] .blog-header h1 {
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+[data-theme="tech"] .blog-header p {
+  max-width: 68ch;
+  color: #35526b;
+}
+
+[data-theme="tech"] .theme-badge {
+  border-radius: 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+[data-theme="tech"] .featured-post-card,
+[data-theme="tech"] .post-card {
+  border-radius: 1rem;
+  border-width: 1.5px;
+  box-shadow: 0 14px 30px -24px rgba(8, 38, 65, 0.5);
+}
+
+[data-theme="tech"] .featured-post-content,
+[data-theme="tech"] .post-card-content {
+  gap: 0.8rem;
+}
+
+[data-theme="tech"] .featured-post-card {
+  background-image:
+    linear-gradient(120deg, rgba(8, 145, 178, 0.1), rgba(8, 145, 178, 0)),
+    linear-gradient(180deg, #ffffff, #f5fbff);
+}
+
+[data-theme="tech"] .post-title {
+  line-height: 1.15;
+}
+
+[data-theme="tech"] .post-title a::after,
+[data-theme="tech"] .post-title::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 2px;
+  margin-top: 0.5rem;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+[data-theme="tech"] .post-hero img,
+[data-theme="tech"] .featured-post-image img,
+[data-theme="tech"] .post-card-image img {
+  border-radius: 0.65rem;
+}
+
+[data-theme="tech"] .post-body code,
+[data-theme="tech"] .post-body pre {
+  border-radius: 0.35rem;
+}
+
+[data-theme="tech"] .post-body h2,
+[data-theme="tech"] .post-body h3 {
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+[data-theme="tech"] .post-body h2::before,
+[data-theme="tech"] .post-body h3::before {
+  content: "// ";
+  color: var(--accent);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+[data-theme="tech"] .post-body a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.16em;
+}
+
+[data-theme="tech"] .post-body blockquote {
+  border-left-width: 0.3rem;
+  background: linear-gradient(90deg, rgba(8, 145, 178, 0.08), rgba(8, 145, 178, 0));
+  border-radius: 0.4rem;
+}
+
+/* Editorial: warm and literary, serif-forward */
 [data-theme="editorial"] {
-  --font-display: Georgia, "Times New Roman", serif;
-  --accent: #c2410c;
-  --accent-hover: #9a3412;
-  --accent-glow: rgba(194, 65, 12, 0.12);
-  --accent-wash: rgba(194, 65, 12, 0.05);
-  --paper: #fdfaf6;
-  --paper-warm: #f7f0e6;
-  --surface: #fefcf8;
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --accent: #9a3412;
+  --accent-hover: #7c2d12;
+  --accent-glow: rgba(154, 52, 18, 0.14);
+  --accent-wash: rgba(154, 52, 18, 0.08);
+  --paper: #fdf8f1;
+  --paper-warm: #f7efe2;
+  --surface: #fffdf9;
+  --ink: #2f2621;
+  --ink-soft: #4a3d35;
+  --rule: #dfd2c2;
+}
+
+[data-theme="editorial"] .blog-header {
+  text-align: center;
+}
+
+[data-theme="editorial"] .blog-header::after {
+  width: 9rem;
+  border-radius: 999px;
+}
+
+[data-theme="editorial"] .blog-header h1 {
+  font-size: clamp(3.3rem, 8vw, 5.6rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+[data-theme="editorial"] .blog-header p {
+  max-width: 58ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.12rem;
+  line-height: 1.9;
+}
+
+[data-theme="editorial"] .theme-badge {
+  border-radius: 999px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+[data-theme="editorial"] .featured-post-card,
+[data-theme="editorial"] .post-card {
+  border-radius: 0.2rem;
+  box-shadow: none;
+}
+
+[data-theme="editorial"] .featured-post-content,
+[data-theme="editorial"] .post-card-content {
+  gap: 1.1rem;
+}
+
+[data-theme="editorial"] .featured-post-card {
+  background-image: linear-gradient(180deg, #fffdf8, #f9f0e2);
+}
+
+[data-theme="editorial"] .post-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+}
+
+[data-theme="editorial"] .post-title a {
+  text-decoration: none;
+}
+
+[data-theme="editorial"] .post-body {
+  max-width: 66ch;
+  font-size: 1.13rem;
+  line-height: 1.92;
+  text-align: justify;
+  text-wrap: pretty;
+}
+
+[data-theme="editorial"] .post-body p {
+  margin: 1.2em 0;
+}
+
+[data-theme="editorial"] .post-body p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 3.2em;
+  line-height: 0.85;
+  padding-right: 0.1em;
+  margin-top: 0.04em;
+  color: var(--accent);
+}
+
+[data-theme="editorial"] .post-body blockquote {
+  font-style: italic;
+  border-left-width: 0.22rem;
+  background: rgba(154, 52, 18, 0.03);
+}
+
+[data-theme="editorial"] .post-body h2,
+[data-theme="editorial"] .post-body h3 {
+  margin-top: 2.1em;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+[data-theme="editorial"] .post-body h2 {
+  font-size: clamp(1.75rem, 3vw, 2.2rem);
+}
+
+[data-theme="editorial"] .post-body h3 {
+  font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+}
+
+[data-theme="editorial"] .post-body a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.08em;
+}
+
+[data-theme="editorial"] .post-hero img,
+[data-theme="editorial"] .featured-post-image img,
+[data-theme="editorial"] .post-card-image img {
+  filter: saturate(0.88) contrast(0.95);
+  border-radius: 0.2rem;
+}
+
+[data-theme="editorial"] .post-body code {
+  font-size: 0.9em;
+  background: rgba(143, 90, 53, 0.1);
+}
+
+[data-theme="editorial"] .post-meta,
+[data-theme="editorial"] .post-list-meta {
+  letter-spacing: 0.01em;
 }
 
 /* Bold: vivid rose, high energy */
