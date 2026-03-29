@@ -925,13 +925,15 @@ a:focus-visible {
 [data-theme="editorial"] .post-body {
   max-width: 66ch;
   font-size: 1.13rem;
-  line-height: 1.92;
-  text-align: justify;
+  line-height: 1.82;
+  text-align: left;
   text-wrap: pretty;
+  color: #1f1f23;
 }
 
 [data-theme="editorial"] .post-body p {
   margin: 1.2em 0;
+  color: #1f1f23;
 }
 
 [data-theme="editorial"] .post-body p:first-of-type::first-letter {
