@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="t d">
+  <title id="t">Plan de tres días en Disneyland Paris</title>
+  <desc id="d">Tres columnas, una por día, sobre un eje de horas de las 8:00 a las 22:00. Cada columna muestra dos recorridos que se separan y se vuelven a juntar en los momentos en que el grupo se divide. El día 1 empieza a las 11:15; los días 2 y 3 empiezan a las 8:30 con el Extra Magic Time.</desc>
+
+  <defs>
+    <linearGradient id="sky" x1="0" y1="140" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="#171c3f"/>
+      <stop offset="0.12" stop-color="#2b2c5e"/>
+      <stop offset="0.22" stop-color="#7d3f6d"/>
+      <stop offset="0.30" stop-color="#d2704f"/>
+      <stop offset="0.40" stop-color="#efc27b"/>
+      <stop offset="0.52" stop-color="#cfd8e8"/>
+      <stop offset="0.70" stop-color="#6b6f9c"/>
+      <stop offset="0.86" stop-color="#262a55"/>
+      <stop offset="1"    stop-color="#12142f"/>
+    </linearGradient>
+    <style>
+      .lbl  { font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+      .day  { font-size: 36px; font-weight: 700; letter-spacing: 2px; fill: #0a0a0b; }
+      .park { font-size: 16px; font-weight: 600; letter-spacing: 2.6px; fill: #6e6e78; }
+      .axis { font-size: 18px; font-weight: 600; letter-spacing: 1px; fill: #8b8b95; }
+      .mark { font-size: 21px; font-weight: 700; letter-spacing: 0.6px; }
+      .foot { font-size: 17px; font-weight: 600; letter-spacing: 1.8px; fill: #6e6e78; }
+      .trunk  { stroke: #f4c95d; stroke-width: 7; fill: none; stroke-linecap: round; }
+      .branch { stroke-width: 6.5; fill: none; stroke-linecap: round; }
+      .a { stroke: #ff8a5b; }
+      .b { stroke: #8fd0e0; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="900" fill="#faf9f7"/>
+  <rect x="1" y="1" width="1198" height="898" rx="16" fill="none" stroke="#0a0a0b" stroke-opacity="0.10" stroke-width="2"/>
+
+  <!-- time axis -->
+  <g class="lbl axis" text-anchor="end">
+    <text x="100" y="157">08:00</text>
+    <text x="100" y="340">12:00</text>
+    <text x="100" y="523">16:00</text>
+    <text x="100" y="706">20:00</text>
+  </g>
+
+  <!-- day columns -->
+  <g>
+    <rect x="130" y="140" width="310" height="660" rx="14" fill="url(#sky)"/>
+    <rect x="485" y="140" width="310" height="660" rx="14" fill="url(#sky)"/>
+    <rect x="840" y="140" width="310" height="660" rx="14" fill="url(#sky)"/>
+  </g>
+
+  <!-- hour hairlines -->
+  <g stroke="#faf9f7" stroke-opacity="0.20" stroke-width="1">
+    <line x1="130" y1="332.9" x2="440"  y2="332.9"/>
+    <line x1="485" y1="332.9" x2="795"  y2="332.9"/>
+    <line x1="840" y1="332.9" x2="1150" y2="332.9"/>
+    <line x1="130" y1="515.7" x2="440"  y2="515.7"/>
+    <line x1="485" y1="515.7" x2="795"  y2="515.7"/>
+    <line x1="840" y1="515.7" x2="1150" y2="515.7"/>
+    <line x1="130" y1="698.6" x2="440"  y2="698.6"/>
+    <line x1="485" y1="698.6" x2="795"  y2="698.6"/>
+    <line x1="840" y1="698.6" x2="1150" y2="698.6"/>
+  </g>
+
+  <!-- DAY 1 — morning lost to the luggage belt -->
+  <rect x="130" y="140" width="310" height="158.6" rx="14" fill="#faf9f7" fill-opacity="0.62"/>
+  <line x1="130" y1="298.6" x2="440" y2="298.6" stroke="#0a0a0b" stroke-opacity="0.45" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text class="lbl mark" x="150" y="290" fill="#3a3a44">11:15</text>
+  <g class="trunk">
+    <path d="M285,298.6 V516.5"/>
+    <path d="M285,594.8 V790"/>
+  </g>
+  <path class="branch a" d="M285,516.5 C285,527.5 233,527.5 233,538.5 L233,572.8 C233,583.8 285,583.8 285,594.8"/>
+  <path class="branch b" d="M285,516.5 C285,527.5 337,527.5 337,538.5 L337,572.8 C337,583.8 285,583.8 285,594.8"/>
+
+  <!-- DAY 2 -->
+  <g class="trunk">
+    <path d="M640,172.9 V288.3"/>
+    <path d="M640,370.1 V470.9"/>
+    <path d="M640,548.6 V562.2"/>
+    <path d="M640,636.9 V790"/>
+  </g>
+  <g class="branch a">
+    <path d="M640,288.3 C640,299.3 588,299.3 588,310.3 L588,348.1 C588,359.1 640,359.1 640,370.1"/>
+    <path d="M640,470.9 C640,481.9 588,481.9 588,492.9 L588,526.6 C588,537.6 640,537.6 640,548.6"/>
+    <path d="M640,562.2 C640,573.2 588,573.2 588,584.2 L588,614.9 C588,625.9 640,625.9 640,636.9"/>
+  </g>
+  <g class="branch b">
+    <path d="M640,288.3 C640,299.3 692,299.3 692,310.3 L692,348.1 C692,359.1 640,359.1 640,370.1"/>
+    <path d="M640,470.9 C640,481.9 692,481.9 692,492.9 L692,526.6 C692,537.6 640,537.6 640,548.6"/>
+    <path d="M640,562.2 C640,573.2 692,573.2 692,584.2 L692,614.9 C692,625.9 640,625.9 640,636.9"/>
+  </g>
+
+  <!-- DAY 3 -->
+  <g class="trunk">
+    <path d="M995,172.9 V219.4"/>
+    <path d="M995,324.4 V425.1"/>
+    <path d="M995,514.9 V790"/>
+  </g>
+  <g class="branch a">
+    <path d="M995,219.4 C995,230.4 943,230.4 943,241.4 L943,302.4 C943,313.4 995,313.4 995,324.4"/>
+    <path d="M995,425.1 C995,436.1 943,436.1 943,447.1 L943,492.9 C943,503.9 995,503.9 995,514.9"/>
+  </g>
+  <g class="branch b">
+    <path d="M995,219.4 C995,230.4 1047,230.4 1047,241.4 L1047,302.4 C1047,313.4 995,313.4 995,324.4"/>
+    <path d="M995,425.1 C995,436.1 1047,436.1 1047,447.1 L1047,492.9 C1047,503.9 995,503.9 995,514.9"/>
+  </g>
+
+  <!-- Extra Magic Time markers, days 2 and 3 -->
+  <g fill="#f4c95d">
+    <circle cx="640" cy="172.9" r="7"/>
+    <circle cx="995" cy="172.9" r="7"/>
+  </g>
+  <g fill="none" stroke="#f4c95d">
+    <circle cx="640" cy="172.9" r="13" stroke-opacity="0.5"  stroke-width="1.8"/>
+    <circle cx="640" cy="172.9" r="20" stroke-opacity="0.22" stroke-width="1.4"/>
+    <circle cx="995" cy="172.9" r="13" stroke-opacity="0.5"  stroke-width="1.8"/>
+    <circle cx="995" cy="172.9" r="20" stroke-opacity="0.22" stroke-width="1.4"/>
+  </g>
+  <g class="lbl mark" fill="#f4c95d">
+    <text x="672" y="178">8:30</text>
+    <text x="1027" y="178">8:30</text>
+  </g>
+
+  <!-- end-of-day dots -->
+  <g fill="#f4c95d">
+    <circle cx="285" cy="790" r="5"/>
+    <circle cx="640" cy="790" r="5"/>
+    <circle cx="995" cy="790" r="5"/>
+  </g>
+
+  <!-- day headings -->
+  <g class="lbl" text-anchor="middle">
+    <text class="day"  x="285" y="98">MIÉ 2</text>
+    <text class="park" x="285" y="126">DISNEYLAND</text>
+    <text class="day"  x="640" y="98">JUE 3</text>
+    <text class="park" x="640" y="126">ADVENTURE WORLD</text>
+    <text class="day"  x="995" y="98">VIE 4</text>
+    <text class="park" x="995" y="126">DISNEYLAND</text>
+  </g>
+
+  <!-- legend -->
+  <g>
+    <line x1="130" y1="855" x2="172" y2="855" stroke="#ff8a5b" stroke-width="4.5" stroke-linecap="round"/>
+    <text class="lbl foot" x="182" y="860">PADRE E HIJO</text>
+    <line x1="330" y1="855" x2="372" y2="855" stroke="#8fd0e0" stroke-width="4.5" stroke-linecap="round"/>
+    <text class="lbl foot" x="382" y="860">MADRE E HIJA</text>
+    <text class="lbl foot" x="1150" y="860" text-anchor="end">3 DÍAS · 2 PARQUES · 2 GRUPOS</text>
+  </g>
+</svg>
