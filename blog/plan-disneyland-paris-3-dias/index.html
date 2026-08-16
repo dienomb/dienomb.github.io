@@ -21,6 +21,85 @@
     }
 
     .table-scroll table { margin: 0; }
+
+    /* The two pairs spend a big part of the trip apart, and running that
+       through italic prose hid it completely. Every fork is now a two-column
+       box: one pair per column, each with its own colour. The colour is always
+       backed by a text label, because colour on its own is not a signal
+       everyone can read. Scoped here because assets/blog.css is regenerated
+       by the publisher. */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin: 0.85rem 0 0.35rem;
+    }
+
+    .split > div {
+      border-left: 4px solid;
+      border-radius: 0.4rem;
+      padding: 0.7rem 0.9rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .split .who {
+      display: block;
+      margin-bottom: 0.15rem;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .split-a { border-color: #e2621f; background: rgba(226, 98, 31, 0.07); }
+    .split-a .who { color: #a8410c; }
+    .split-b { border-color: #2b7f9e; background: rgba(43, 127, 158, 0.08); }
+    .split-b .who { color: #17596f; }
+
+    .split a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+    }
+
+    .split a:hover { text-decoration-thickness: 2px; }
+
+    .rejoin {
+      margin: 0.15rem 0 0;
+      font-size: 0.88rem;
+      color: var(--ink-soft, #55595f);
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.1rem 0 0;
+    }
+
+    .key {
+      border-left: 4px solid;
+      border-radius: 0.3rem;
+      padding: 0.32rem 0.6rem;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .key-a   { border-color: #e2621f; background: rgba(226, 98, 31, 0.09); color: #a8410c; }
+    .key-b   { border-color: #2b7f9e; background: rgba(43, 127, 158, 0.10); color: #17596f; }
+    .key-all { border-color: #9aa0a6; background: rgba(154, 160, 166, 0.12); color: #55595f; }
+
+    /* Same two colours on the anexo table, so the pairing is recognisable in
+       both places. */
+    .groups tbody td:first-child  { border-left: 4px solid #e2621f; }
+    .groups tbody td:nth-child(2) { border-left: 4px solid #2b7f9e; }
+
+    @media (max-width: 640px) {
+      .split { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body class="blog-post-page" data-theme="modern" data-topic="general" data-layout="editorial-classic">
@@ -142,6 +221,10 @@
         <li>Cuando el grupo se divida, emparejad por zona y duración. Nadie espera de brazos cruzados.</li>
         <li>El viernes las atracciones fuertes van por la mañana: el equipaje sale del hotel al amanecer y la noche acaba en París.</li>
         </ul></section>
+        <h3 id="quien-va-con-quien">Quién va con quién</h3>
+        <p>Los dos niños no llegan a las mismas alturas, así que el grupo se parte <strong>seis veces</strong> a lo largo del viaje. Cada vez que eso pasa veréis una caja de dos columnas con quién hace qué. <strong>Todo lo que no esté en una caja de esas, lo hacéis los cuatro juntos.</strong></p>
+        <p class="legend"><span class="key key-a">Padre e hijo</span><span class="key key-b">Madre e hija</span><span class="key key-all">Sin caja = los cuatro</span></p>
+        <p>Los nombres de las atracciones enlazan a su ficha oficial, con fotos y vídeo, para saber cuál es cada una antes de ir.</p>
         <h2 id="miercoles-2">Miércoles 2 — Llegada y Parque Disneyland</h2>
         <h3 id="miercoles-la-manana">La mañana</h3>
         <div class="table-scroll">
@@ -200,7 +283,13 @@
         <li><strong>⭐ 11:30 · Cabalgata «A Million Splashes of Colour»</strong> — suele pasar a las 11:30 y a las 17:30, y a las 11:15 ya estáis en Main Street: quedaos donde estáis y la veis sin gastar nada de tiempo. Para 15 minutos delante del castillo. Termina temporada el 6 de septiembre, así que la pilláis por poco. <strong>Confirmad la hora en la app esa mañana</strong>, que cambia según el calendario.</li>
         <li><strong>12:15</strong> — Comida, en cuanto acabe la cabalgata.</li>
         <li><strong>12:45–15:30 · Fantasyland</strong> — It's a Small World primero (mucha capacidad, cola rápida), Carrousel de Lancelot, Dumbo, Alice's Curious Labyrinth y Le Pays des Contes de Fées. <strong>Apuntaos al Princess Pavilion en la app nada más entrar al parque</strong>: va por cola virtual.</li>
-        <li><strong>15:30–18:00 · Discoveryland</strong> — Primero los cuatro juntos, una vuelta completa en el <strong>Disneyland Railroad</strong>: 20 minutos sentados que el primer día valen oro. Después <strong>Hyperspace Mountain</strong> &#8594; <em>padre e hijo; ellas, Buzz Lightyear y Orbitron, los dos ahí al lado</em>.</li>
+        <li><strong>15:30–18:00 · Discoveryland</strong> — Primero los cuatro juntos, una vuelta completa en el <strong>Disneyland Railroad</strong>: 20 minutos sentados que el primer día valen oro. Después os separáis:
+        <div class="split">
+        <div class="split-a"><span class="who">Padre e hijo</span><a href="https://www.disneylandparis.com/en-int/attractions/disneyland-park/hyper-space-mountain">Hyperspace Mountain</a></div>
+        <div class="split-b"><span class="who">Madre e hija</span><a href="https://www.disneylandparis.com/en-int/attractions/disneyland-park/buzz-lightyear-laser-blast">Buzz Lightyear</a> y <a href="https://www.disneylandparis.com/en-int/attractions/disneyland-park/orbitron">Orbitron</a>, los dos ahí al lado</div>
+        </div>
+        <p class="rejoin">~40 min. Reencuentro en la entrada de Hyperspace Mountain.</p>
+        </li>
         <li><strong>18:30–19:30</strong> — Cena.</li>
         <li><strong>19:30–21:30 · Fantasyland y Main Street de noche</strong> — gana muchísimo, es terreno cómodo para la niña y podéis repetir lo que más les haya gustado.</li>
         <li><strong>22:00 · Disney Tales of Magic</strong> — proyecciones sobre el castillo con láseres y pirotecnia, desde Central Plaza o Main Street. Hasta finales de septiembre va en versión adaptada por obras: sin fuentes, pero con más pirotecnia.</li>
@@ -218,11 +307,29 @@
         <li><strong>8:30 (EMT) · Directos a Frozen Ever After.</strong> Sin desviaros. Es la atracción más solicitada del resort y en horario normal se va a 90-120 minutos; a las 8:30 la haréis casi del tirón. Barco suave de 5 minutos, con una caída pequeña y un tramo hacia atrás: avisad a la niña.</li>
         <li>Con lo que quede de Extra Magic Time: Raiponce Tangled Spin y explorar Arendelle antes de que se llene.</li>
         <li><strong>9:30</strong> — Apuntaos en la app a la <strong>Rencontre Royale</strong> con Anna y Elsa. Cola virtual, plazas limitadas, hacedlo en cuanto abra.</li>
-        <li><strong>10:00–12:30 · Worlds of Pixar</strong> — Ratatouille (sin límite de altura, 4D, encanta a esas edades), Cars ROAD TRIP y Slinky Dog. <strong>Crush's Coaster</strong> &#8594; <em>padre e hijo; ellas, Toy Story Playland al lado</em>.</li>
+        <li><strong>10:00–12:30 · Worlds of Pixar</strong> — Los cuatro: Ratatouille (sin límite de altura, 4D, encanta a esas edades), Cars ROAD TRIP y Slinky Dog. Y luego:
+        <div class="split">
+        <div class="split-a"><span class="who">Padre e hijo</span><a href="https://www.disneylandparis.com/en-int/attractions/disney-adventure-world/crushs-coaster">Crush's Coaster</a></div>
+        <div class="split-b"><span class="who">Madre e hija</span><a href="https://www.disneylandparis.com/en-usd/destinations/disney-adventure-world/worlds-of-pixar">Toy Story Playland</a>: Parachute Drop y Cars Quatre Roues</div>
+        </div>
+        <p class="rejoin">~50-60 min. La cola de Crush’s es la más engañosa del parque: miradla en la app antes de separaros.</p>
+        </li>
         <li><strong>12:30–13:30</strong> — Comida.</li>
         <li><strong>13:30–15:30 · World of Frozen, el bloque de ella.</strong> Aquí el terreno es suyo: Rencontre Royale, el espectáculo <em>A Celebration in Arendelle</em>, las tiendas de la plaza, y una segunda vuelta a Frozen Ever After si la cola baja de 40 minutos.</li>
-        <li><strong>15:30–16:15 · Tower of Terror</strong> &#8594; <em>padre e hijo; ellas, Animation Academy. Reencuentro en la entrada de Avengers Campus.</em></li>
-        <li><strong>16:15–19:00 · Avengers Campus</strong> — Spider-Man W.E.B. Adventure funciona con los dos: sin límite de altura e interactiva. <strong>Flight Force</strong> &#8594; <em>padre e hijo; ellas repiten Spider-Man o van a Stitch Live!</em></li>
+        <li><strong>15:30–16:15</strong> — Os separáis otra vez:
+        <div class="split">
+        <div class="split-a"><span class="who">Padre e hijo</span><a href="https://www.disneylandparis.com/en-usd/attractions/disney-adventure-world/twilight-zone-tower-of-terror">Tower of Terror</a></div>
+        <div class="split-b"><span class="who">Madre e hija</span><a href="https://www.disneylandparis.com/en-usd/entertainment/disney-adventure-world/animation-academy">Animation Academy</a>: clase de dibujo, se lleva el dibujo hecho</div>
+        </div>
+        <p class="rejoin">~45 min. Reencuentro en la entrada de Avengers Campus.</p>
+        </li>
+        <li><strong>16:15–19:00 · Avengers Campus</strong> — Primero Spider-Man W.E.B. Adventure los cuatro: sin límite de altura e interactiva, funciona con los dos niños. Después:
+        <div class="split">
+        <div class="split-a"><span class="who">Padre e hijo</span><a href="https://www.disneylandparis.com/en-int/attractions/disney-adventure-world/avengers-assemble-flight-force">Flight Force</a></div>
+        <div class="split-b"><span class="who">Madre e hija</span>Repetir <a href="https://www.disneylandparis.com/en-usd/attractions/walt-disney-studios-park/spider-man-web-adventure/">Spider-Man</a> ahí mismo, o <a href="https://www.disneylandparis.com/en-usd/entertainment/disney-adventure-world/stitch-live">Stitch Live!</a></div>
+        </div>
+        <p class="rejoin">~40 min.</p>
+        </li>
         <li><strong>19:00 · «Mickey and the Magician»</strong> en World Premiere Plaza. Muy recomendable a estas edades y salen Anna y Elsa. Llegad 20 minutos antes.</li>
         <li><strong>21:50 · Disney Cascade of Lights</strong> sobre el lago de Adventure Bay: drones, fuentes y luces, justo antes del cierre.</li>
         </ul>
@@ -245,9 +352,21 @@
         <p><strong>Recorrido:</strong> Fantasyland &#8594; Frontierland &#8594; Adventureland &#8594; Main Street</p>
         <ul>
         <li><strong>8:30 (EMT) · Peter Pan's Flight, directos.</strong> Es la que más cola coge del parque todo el día y a las 8:30 entra casi del tirón. Después: Les Voyages de Pinocchio, Blanche-Neige, Casey Jr. y Le Pays des Contes de Fées.</li>
-        <li><strong>10:00–13:00 · Frontierland</strong> — <strong>Big Thunder Mountain y Phantom Manor</strong> &#8594; <em>padre e hijo, unos 70-80 minutos los dos juntos</em>. <em>Ellas:</em> el Thunder Mesa Riverboat y lo que les quedara de Fantasyland. Reencuentro fijado en la base del castillo.</li>
+        <li><strong>10:00–13:00 · Frontierland</strong> — La separación más larga del viaje:
+        <div class="split">
+        <div class="split-a"><span class="who">Padre e hijo</span><a href="https://www.disneylandparis.com/en-gb/attractions/disneyland-park/big-thunder-mountain">Big Thunder Mountain</a> y <a href="https://www.disneylandparis.com/en-usd/attractions/disneyland-park/phantom-manor">Phantom Manor</a></div>
+        <div class="split-b"><span class="who">Madre e hija</span><a href="https://www.disneylandparis.com/en-int/attractions/disneyland-park/thunder-mesa-riverboat-landing">Thunder Mesa Riverboat</a> (el Molly Brown) y, cruzando al castillo, lo que les quedara de Fantasyland</div>
+        </div>
+        <p class="rejoin">~70-80 min los dos juntos. Reencuentro fijado en la base del castillo.</p>
+        </li>
         <li><strong>13:00–14:00</strong> — Comida.</li>
-        <li><strong>14:00–17:00 · Adventureland</strong> — <strong>Piratas del Caribe y Adventure Isle</strong> &#8594; <em>padre e hijo</em>. <em>Ellas:</em> Le Passage Enchanté d'Aladdin y La Cabane des Robinson, el árbol, desde el que se ve todo el parque.</li>
+        <li><strong>14:00–17:00 · Adventureland</strong> — Última separación del viaje:
+        <div class="split">
+        <div class="split-a"><span class="who">Padre e hijo</span><a href="https://www.disneylandparis.com/en-usd/attractions/disneyland-park/pirates-of-the-caribbean">Piratas del Caribe</a> y <a href="https://www.disneylandparis.com/en-int/attractions/disneyland-park/adventure-isle">Adventure Isle</a></div>
+        <div class="split-b"><span class="who">Madre e hija</span><a href="https://www.disneylandparis.com/en-int/attractions/disneyland-park/le-passage-enchante-d-aladdin">Le Passage Enchanté d'Aladdin</a> y <a href="https://www.disneylandparis.com/en-int/attractions/disneyland-park/la-cabane-des-robinson">La Cabane des Robinson</a>, el árbol desde el que se ve todo el parque</div>
+        </div>
+        <p class="rejoin">~60 min.</p>
+        </li>
         <li><strong>17:00–19:00 · Libre.</strong> A estas alturas ya sabéis qué les enamoró. Repetir vale más que descubrir algo nuevo, sobre todo para la niña.</li>
         <li><strong>19:00–20:00 · Cena en el parque.</strong> No es opcional: el hotel de París queda lejos y no vais a cenar allí.</li>
         <li><strong>20:00–21:00 · Main Street y Fantasyland de noche.</strong> El parque de noche gana muchísimo y es terreno cómodo para la niña. Última foto del castillo iluminado.</li>
@@ -436,7 +555,7 @@
         <td>✅</td>
         </tr>
         <tr>
-        <td>Crush's Coaster</td>
+        <td><a href="https://www.disneylandparis.com/en-int/attractions/disney-adventure-world/crushs-coaster">Crush's Coaster</a></td>
         <td>1,07 m</td>
         <td>⚠️ justo</td>
         <td>✅</td>
@@ -458,9 +577,9 @@
         </div>
         <p><strong>Altura y ganas son cosas distintas.</strong> Varias las cumple por altura pero no las va a hacer. En la práctica, fuera para la niña de 5: Big Thunder, Phantom Manor, Piratas del Caribe, Adventure Isle, Tower of Terror, Crush's Coaster, Hyperspace Mountain y Flight Force.</p>
         <h3 id="los-dos-grupos">Los dos grupos</h3>
-        <p>Padre e hijo van a por las atracciones fuertes y madre e hija hacen algo en paralelo. La clave es emparejar por <strong>zona y duración</strong>:</p>
+        <p>Los seis momentos en que os separáis, juntos. La clave es emparejar por <strong>zona y duración</strong>, para que nadie espere de brazos cruzados. Cada nombre lleva enlace a su ficha oficial, con fotos y vídeo.</p>
         <div class="table-scroll">
-        <table>
+        <table class="groups">
         <thead>
         <tr>
         <th>Padre e hijo</th>
@@ -470,33 +589,33 @@
         </thead>
         <tbody>
         <tr>
-        <td>Hyperspace Mountain</td>
-        <td>Buzz Lightyear y Orbitron, al lado</td>
+        <td><a href="https://www.disneylandparis.com/en-int/attractions/disneyland-park/hyper-space-mountain">Hyperspace Mountain</a></td>
+        <td><a href="https://www.disneylandparis.com/en-int/attractions/disneyland-park/buzz-lightyear-laser-blast">Buzz Lightyear</a> y <a href="https://www.disneylandparis.com/en-int/attractions/disneyland-park/orbitron">Orbitron</a>, al lado</td>
         <td>~40 min</td>
         </tr>
         <tr>
         <td>Crush's Coaster</td>
-        <td>Toy Story Playland</td>
+        <td><a href="https://www.disneylandparis.com/en-usd/destinations/disney-adventure-world/worlds-of-pixar">Toy Story Playland</a></td>
         <td>~50-60 min</td>
         </tr>
         <tr>
-        <td>Tower of Terror</td>
-        <td>Animation Academy</td>
+        <td><a href="https://www.disneylandparis.com/en-usd/attractions/disney-adventure-world/twilight-zone-tower-of-terror">Tower of Terror</a></td>
+        <td><a href="https://www.disneylandparis.com/en-usd/entertainment/disney-adventure-world/animation-academy">Animation Academy</a></td>
         <td>~45 min</td>
         </tr>
         <tr>
-        <td>Flight Force</td>
-        <td>Spider-Man, misma zona</td>
+        <td><a href="https://www.disneylandparis.com/en-int/attractions/disney-adventure-world/avengers-assemble-flight-force">Flight Force</a></td>
+        <td><a href="https://www.disneylandparis.com/en-usd/attractions/walt-disney-studios-park/spider-man-web-adventure/">Spider-Man</a>, misma zona</td>
         <td>~40 min</td>
         </tr>
         <tr>
-        <td>Big Thunder y Phantom Manor</td>
-        <td>Thunder Mesa Riverboat y Fantasyland</td>
+        <td><a href="https://www.disneylandparis.com/en-gb/attractions/disneyland-park/big-thunder-mountain">Big Thunder</a> y <a href="https://www.disneylandparis.com/en-usd/attractions/disneyland-park/phantom-manor">Phantom Manor</a></td>
+        <td><a href="https://www.disneylandparis.com/en-int/attractions/disneyland-park/thunder-mesa-riverboat-landing">Thunder Mesa Riverboat</a> y Fantasyland</td>
         <td>~70-80 min</td>
         </tr>
         <tr>
-        <td>Piratas y Adventure Isle</td>
-        <td>Passage d'Aladdin y La Cabane des Robinson</td>
+        <td><a href="https://www.disneylandparis.com/en-usd/attractions/disneyland-park/pirates-of-the-caribbean">Piratas</a> y <a href="https://www.disneylandparis.com/en-int/attractions/disneyland-park/adventure-isle">Adventure Isle</a></td>
+        <td><a href="https://www.disneylandparis.com/en-int/attractions/disneyland-park/le-passage-enchante-d-aladdin">Passage d'Aladdin</a> y <a href="https://www.disneylandparis.com/en-int/attractions/disneyland-park/la-cabane-des-robinson">La Cabane des Robinson</a></td>
         <td>~60 min</td>
         </tr>
         </tbody>
