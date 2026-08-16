@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="t d">
   <title id="t">Plan de tres días en Disneyland Paris</title>
-  <desc id="d">Tres columnas, una por día, sobre un eje de horas de las 8:00 a las 22:00. Cada columna muestra dos recorridos que se separan y se vuelven a juntar en los momentos en que el grupo se divide. El día 1 empieza a las 11:15; los días 2 y 3 empiezan a las 8:30 con el Extra Magic Time.</desc>
+  <desc id="d">Tres columnas, una por día, sobre un eje de horas de las 8:00 a las 22:00. Cada columna muestra dos recorridos que se separan y se vuelven a juntar en los momentos en que el grupo se divide. El día 1 empieza a las 11:15; los días 2 y 3 empiezan a las 8:30 con el Extra Magic Time. El día 3 termina a las 19:00, cuando la familia sale del parque hacia París.</desc>
 
   <defs>
     <linearGradient id="sky" x1="0" y1="140" x2="0" y2="800" gradientUnits="userSpaceOnUse">
@@ -92,7 +92,7 @@
   <g class="trunk">
     <path d="M995,172.9 V219.4"/>
     <path d="M995,324.4 V425.1"/>
-    <path d="M995,514.9 V790"/>
+    <path d="M995,514.9 V652.8"/>
   </g>
   <g class="branch a">
     <path d="M995,219.4 C995,230.4 943,230.4 943,241.4 L943,302.4 C943,313.4 995,313.4 995,324.4"/>
@@ -101,6 +101,14 @@
   <g class="branch b">
     <path d="M995,219.4 C995,230.4 1047,230.4 1047,241.4 L1047,302.4 C1047,313.4 995,313.4 995,324.4"/>
     <path d="M995,425.1 C995,436.1 1047,436.1 1047,447.1 L1047,492.9 C1047,503.9 995,503.9 995,514.9"/>
+  </g>
+
+  <!-- DAY 3 — the evening belongs to the transfer to Paris, not the park -->
+  <rect x="840" y="652.8" width="310" height="147.2" rx="14" fill="#faf9f7" fill-opacity="0.62"/>
+  <line x1="840" y1="652.8" x2="1150" y2="652.8" stroke="#0a0a0b" stroke-opacity="0.45" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <g class="lbl" fill="#3a3a44">
+    <text class="mark" x="860" y="682">19:00</text>
+    <text class="foot" x="860" y="708" fill="#6e6e78">A PARÍS</text>
   </g>
 
   <!-- Extra Magic Time markers, days 2 and 3 -->
@@ -123,7 +131,7 @@
   <g fill="#f4c95d">
     <circle cx="285" cy="790" r="5"/>
     <circle cx="640" cy="790" r="5"/>
-    <circle cx="995" cy="790" r="5"/>
+    <circle cx="995" cy="652.8" r="5"/>
   </g>
 
   <!-- day headings -->
