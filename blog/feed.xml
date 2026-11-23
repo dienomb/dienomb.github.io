@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog</title>
+    <link>https://dienomb.github.io/blog/</link>
+    <description>Latest posts</description>
+    <atom:link href="https://dienomb.github.io/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elecciones generales en España 2026: cuándo votamos y quién creo que va a ganar</title>
+      <link>https://dienomb.github.io/blog/elecciones-generales-en-espana-2026-cuando-votamos-y-quien-creo-que-va-a-ganar/</link>
+      <guid>https://dienomb.github.io/blog/elecciones-generales-en-espana-2026-cuando-votamos-y-quien-creo-que-va-a-ganar/</guid>
+      <description>Análisis de las elecciones generales españolas del 29 de noviembre de 2026: qué dicen los sondeos, qué escenarios se abren y un pronóstico propio de escaños que anticipa una victoria del PP y una mayoría de PP y Vox.</description>
+      <pubDate>Mon, 23 Nov 2026 14:16:11 GMT</pubDate>
+    </item>
+    <item>
+      <title>Los mejores restaurantes asturianos del norte de Madrid: 6 direcciones y 2 ganadores en calidad-precio</title>
+      <link>https://dienomb.github.io/blog/los-mejores-restaurantes-asturianos-del-norte-de-madrid-6-direcciones-y-2-ganadores-en-calidad-precio/</link>
+      <guid>https://dienomb.github.io/blog/los-mejores-restaurantes-asturianos-del-norte-de-madrid-6-direcciones-y-2-ganadores-en-calidad-precio/</guid>
+      <description>Una selección de seis restaurantes asturianos del norte de Madrid, comparando precios publicados, valoraciones y especialidades. Sidrería Astur y Sidrería Arturo destacan como las dos mejores opciones por relación calidad-precio.</description>
+      <pubDate>Mon, 23 Nov 2026 13:35:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Crear un negocio desde cero: ¿qué es realmente lo más importante?</title>
+      <link>https://dienomb.github.io/blog/crear-un-negocio-desde-cero-que-es-realmente-lo-mas-importante/</link>
+      <guid>https://dienomb.github.io/blog/crear-un-negocio-desde-cero-que-es-realmente-lo-mas-importante/</guid>
+      <description>Una guía práctica para emprender: identificar problemas reales, validar clientes, construir un modelo rentable y ejecutar con disciplina.</description>
+      <pubDate>Mon, 23 Nov 2026 12:06:48 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
